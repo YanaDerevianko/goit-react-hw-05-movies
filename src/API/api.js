@@ -11,7 +11,7 @@ axios.defaults.params = {
 const fetchData = async (url = "", query = null) => {
   const response = await axios(url, { params: { query } });
   return (response.status = 200
-    ? await response.data.results
+    ? await response.data
     : Promise.reject(new Error("Page Not Found")));
 };
 
@@ -30,9 +30,3 @@ export function fetchMovieCredits(movieId) {
 export function fetchMovieReviews(movieId) {
   return fetchData(`movie/${movieId}/reviews`);
 }
-
-// https://developers.themoviedb.org/3/trending/get-trending - список самых популярных фильмов на сегодня для создания коллекции на главной странице.
-// https://developers.themoviedb.org/3/search/search-movies - поиск кинофильма по ключевому слову на странице фильмов.
-// https://developers.themoviedb.org/3/movies/get-movie-details - запрос полной информации о фильме для страницы кинофильма.
-// https://developers.themoviedb.org/3/movies/get-movie-credits - запрос информации о актёрском составе для страницы кинофильма.
-// https://developers.themoviedb.org/3/movies/get-movie-reviews - запрос обзоров для страницы кинофильма.
