@@ -1,13 +1,11 @@
 import { NavLink } from "react-router-dom";
+import {NavLinkStyle, ActiveNavLinkStyle, NavBlock } from './Navigation.styled.jsx';
 
 export const Navigation = () => {
   return (
-    <nav>
-      <NavLink exact to="/">Home</NavLink>
-      {/* <NavLink to="/movies">Search</NavLink> */}
-      <NavLink to="/movies/:movieId">movies</NavLink>
-      {/* <NavLink to="/movies/:movieId/cast">cast</NavLink> */}
-      {/* <NavLink to="/movies/:movieId/reviews">reviews</NavLink> */}
-    </nav>
+    <NavBlock>
+      <NavLink exact to ="/" style={NavLinkStyle} activeStyle={ActiveNavLinkStyle}>Home</NavLink>
+      <NavLink to="/movies" style={NavLinkStyle} activeStyle={ActiveNavLinkStyle}>Movies</NavLink>
+    </NavBlock>
   );
 };
